@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte de Evaluación – Ficha 3490069 | SENA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sena-verde: #39a900;
+  --sena-naranja: #ff6b00;
+  --texto: #1a1a2e;
+  --texto-dim: #4a5568;
+  --texto-dimmer: #718096;
+  --bg: #f8fafc;
+  --borde: #e2e8f0;
+  --exito: #27ae60;
+  --peligro: #e74c3c;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; color:var(--texto); background:var(--bg); line-height:1.6; overflow-x:hidden; }
+
+.topbar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--borde); padding:12px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.05); flex-wrap:wrap; gap:10px; }
+.topbar-left { display:flex; align-items:center; gap:12px; }
+.sena-logo { background:var(--sena-verde); color:#fff; font-weight:900; font-size:15px; padding:6px 13px; border-radius:8px; letter-spacing:1px; }
+.topbar-brand { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; }
+.topbar-sub { font-size:11px; color:var(--texto-dimmer); margin-top:1px; }
+.topbar-nav { display:flex; gap:14px; flex-wrap:wrap; }
+.topbar-nav a { text-decoration:none; font-size:12px; font-weight:600; color:var(--texto-dimmer); transition:color .2s; white-space:nowrap; }
+.topbar-nav a:hover { color:var(--sena-verde); }
+
+.hero { background:linear-gradient(135deg,#0a2f0a 0%,#1a4d1a 55%,#2d6b2d 100%); padding:56px 20px; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; width:500px; height:500px; background:var(--sena-verde); border-radius:50%; top:-250px; left:-120px; opacity:0.2; filter:blur(80px); }
+.hero::after { content:''; position:absolute; width:350px; height:350px; background:var(--sena-naranja); border-radius:50%; bottom:-180px; right:-80px; opacity:0.15; filter:blur(70px); }
+.hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(57,169,0,0.2); border:1px solid rgba(57,169,0,0.3); color:#7ed957; padding:7px 18px; border-radius:30px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:1; }
+.hero h1 { font-family:'Syne',sans-serif; font-size:clamp(28px,6vw,54px); font-weight:800; color:#fff; line-height:1.15; margin-bottom:14px; position:relative; z-index:1; }
+.hero h1 span { background:linear-gradient(135deg,#7ed957,var(--sena-naranja)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-desc { font-size:clamp(14px,2vw,17px); color:rgba(255,255,255,0.7); max-width:660px; margin:0 auto 28px; position:relative; z-index:1; }
+
+.stats { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; position:relative; z-index:1; margin-top:24px; }
+.stat { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:14px 24px; text-align:center; backdrop-filter:blur(8px); min-width:120px; }
+.stat-num { font-family:'Syne',sans-serif; font-size:32px; font-weight:800; color:#fff; display:block; }
+.stat-label { font-size:12px; color:rgba(255,255,255,0.6); margin-top:2px; }
+.stat.exito .stat-num { color:#7ed957; }
+.stat.peligro .stat-num { color:#ff6b6b; }
+
+.section { max-width:1100px; margin:0 auto; padding:36px 20px 48px; }
+
+.categoria { margin-bottom:32px; border-radius:20px; overflow:hidden; border:2px solid var(--borde); background:#fff; }
+.categoria-header { display:flex; align-items:center; gap:12px; padding:18px 24px; background:var(--cat-color); color:#fff; }
+.categoria-header .emoji { font-size:24px; }
+.categoria-header h3 { font-family:'Syne',sans-serif; font-size:18px; font-weight:800; }
+.categoria-header .count { margin-left:auto; background:rgba(255,255,255,0.2); padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700; }
+
+.estudiantes-list { background:#fff; }
+.estudiante-item { padding:16px 24px; border-bottom:1px solid var(--borde); display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; transition:background .15s; }
+.estudiante-item:last-child { border-bottom:none; }
+.estudiante-item:hover { background:#f8fafb; }
+.estudiante-nombre { font-size:14px; font-weight:600; color:var(--texto); }
+.estudiante-nombre small { display:block; font-size:12px; color:var(--texto-dimmer); font-weight:400; margin-top:2px; }
+.estudiante-badge { padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; white-space:nowrap; }
+.badge-exito { background:#d4edda; color:#155724; }
+.badge-critico { background:#f8d7da; color:#721c24; }
+
+.resumen-box { background:linear-gradient(135deg,rgba(57,169,0,0.07),rgba(57,169,0,0.02)); border:2px solid rgba(57,169,0,0.18); border-radius:16px; padding:24px; margin-bottom:36px; }
+.resumen-title { font-family:'Syne',sans-serif; font-size:16px; font-weight:700; color:var(--sena-verde); margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.resumen-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+.resumen-item { background:#fff; border:1px solid var(--borde); border-radius:12px; padding:14px 18px; }
+.resumen-item-label { font-size:12px; color:var(--texto-dimmer); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+.resumen-item-value { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; color:var(--texto); }
+.resumen-item-value.verde { color:var(--exito); }
+.resumen-item-value.rojo { color:var(--peligro); }
+
+footer { background:var(--texto); text-align:center; padding:24px; font-size:12px; color:rgba(255,255,255,0.55); line-height:1.8; margin-top:48px; }
+footer span { color:#fff; font-weight:700; }
+
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .5s ease,transform .5s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+
+@media(max-width:768px){
+  .topbar { flex-direction:column; align-items:flex-start; }
+  .stats { gap:12px; }
+  .resumen-grid { grid-template-columns:1fr; }
+  .estudiante-item { grid-template-columns:1fr; text-align:center; }
+  .estudiante-badge { justify-self:center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-left">
+    <div class="sena-logo">SENA</div>
+    <div>
+      <div class="topbar-brand">Reporte de Evaluación · Curso Complementario</div>
+      <div class="topbar-sub">Informática: Microsoft Word, Excel e Internet · CADP del Huila</div>
+    </div>
+  </div>
+  <div class="topbar-nav">
+    <a href="#resumen">Resumen</a>
+    <a href="#aprobados">Aprobados</a>
+    <a href="#no-aprobados">No Aprobados</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">📋 19 de Mayo, 2026</div>
+  <h1>Reporte de Evaluación<br><span>Ficha 3490069</span></h1>
+  <p class="hero-desc">Juicio de evaluación oficial del curso complementario Informática: Microsoft Word, Excel e Internet</p>
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">32</span>
+      <span class="stat-label">Total Aprendices</span>
+    </div>
+    <div class="stat exito">
+      <span class="stat-num">22</span>
+      <span class="stat-label">Aprobados</span>
+    </div>
+    <div class="stat peligro">
+      <span class="stat-num">10</span>
+      <span class="stat-label">No Aprobados</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="resumen-box reveal" id="resumen">
+    <div class="resumen-title">📊 Resumen Ejecutivo</div>
+    <div class="resumen-grid">
+      <div class="resumen-item">
+        <div class="resumen-item-label">Total aprendices</div>
+        <div class="resumen-item-value">32</div>
+      </div>
+      <div class="resumen-item">
+        <div class="resumen-item-label">Aprobaron</div>
+        <div class="resumen-item-value verde">22</div>
+      </div>
+      <div class="resumen-item">
+        <div class="resumen-item-label">No aprobaron</div>
+        <div class="resumen-item-value rojo">10</div>
+      </div>
+      <div class="resumen-item">
+        <div class="resumen-item-label">Tasa de aprobación</div>
+        <div class="resumen-item-value verde">68,8%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APROBADOS -->
+  <div class="categoria reveal" id="aprobados" style="--cat-color:var(--exito);">
+    <div class="categoria-header">
+      <span class="emoji">✅</span>
+      <h3>Aprendices Aprobados</h3>
+      <span class="count">22 aprendices</span>
+    </div>
+    <div class="estudiantes-list">
+      <div class="estudiante-item"><div class="estudiante-nombre">ALBA GABRIELA HERNÁNDEZ GIRALDO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">ANGIE JULIETH ESCOBAR PARRA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">BRIYITH TATIANA GONZALEZ MARTINEZ<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">DANIELA SÁNCHEZ<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">DIANA MARCELA NAVEROS CERQUERA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">DUBAN FELIPE OME MANRIQUE<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">ENUAR ALEXIS SOTTO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">GERALDIN CORTES SÁNCHEZ<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">HEIDY VALERIA PERDOMO VARGAS<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">INGRY SOFIA NARVAEZ MARIACA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">LAURA SOFÍA ORDOÑEZ CAMACHO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">LINA MARIA VARGAS LLANOS<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">MARIA DEL MAR VALENCIA VERA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">MARÍA ESTHER RODRIGUEZ RAMÍREZ<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">MARIA PAULA VALENCIA QUINTERO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">MILEICY DANIELA PERAFAN ALVAREZ<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">MONICA ANDREA OVIEDO MENZA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">NICOL DAYANA ESPINOSA TRIVIÑO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">VALENTINA LEÓN DÍAZ<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">XIMENA AROS GARCÍA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">YUDY CONSTANZA MENDEZ TRUJILLO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">YULIANA MERCADO BENAVIDES<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-exito">✅ Aprobado</span></div>
+    </div>
+  </div>
+
+  <!-- NO APROBADOS -->
+  <div class="categoria reveal" id="no-aprobados" style="--cat-color:var(--peligro);">
+    <div class="categoria-header">
+      <span class="emoji">❌</span>
+      <h3>Aprendices No Aprobados</h3>
+      <span class="count">10 aprendices</span>
+    </div>
+    <div class="estudiantes-list">
+      <div class="estudiante-item"><div class="estudiante-nombre">ANA SOFIA LONDOÑO TRUJILLO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">BRAYAN STEVEN RAMOS MOLINA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">INGRY YURANY PARDO TAPIERO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">JENNY LEONOR BARRIOS PERDOMO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">JUANA VALENTINA AMELL FIERRO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">KARLA KATHEANA AMEZQUITA SANCHE<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">LESLY ALEJANDRA SUAREZ PRIETO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">LUCY MUÑOZ ANACONA<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">LUZ ADRIANA GARZÓN NAVEROS<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+      <div class="estudiante-item"><div class="estudiante-nombre">SARA SOFÍA MUÑOZ FIERRO<small>Curso Complementario · Informática: Microsoft Word, Excel e Internet</small></div><span class="estudiante-badge badge-critico">❌ No Aprobado</span></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Reporte de Evaluación · <span>19 de Mayo, 2026</span></p>
+  <p>Centro Agroempresarial y Desarrollo Pecuario del Huila · <span>SENA</span></p>
+  <p>Instructor: <span>Julián Andrés Trujillo Morales</span> · Ficha <span>3490069</span></p>
+  <p style="margin-top:12px; font-size:11px;">Curso Complementario: Informática: Microsoft Word, Excel e Internet</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold:0.05 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+</script>
+</body>
+</html>
